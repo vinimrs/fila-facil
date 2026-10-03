@@ -3,6 +3,7 @@ package br.com.filafacil.logistics.http
 import br.com.filafacil.logistics.http.handlers.CustomerHandler
 import br.com.filafacil.logistics.http.handlers.DeliveryHandler
 import br.com.filafacil.logistics.http.handlers.DockAppointmentHandler
+import br.com.filafacil.logistics.http.handlers.ManifestHandler
 import br.com.filafacil.logistics.http.handlers.PickupHandler
 import br.com.filafacil.logistics.http.handlers.PickupWindowHandler
 import br.com.filafacil.logistics.http.handlers.RefundHandler
@@ -15,6 +16,7 @@ class Router(
     private val refundHandler: RefundHandler,
     private val pickupWindowHandler: PickupWindowHandler,
     private val dockAppointmentHandler: DockAppointmentHandler,
+    private val manifestHandler: ManifestHandler,
 ) {
 
     fun handle(exchange: HttpExchange) {
@@ -65,6 +67,10 @@ class Router(
                     dockAppointmentHandler.uploadAttachment(exchange, HttpUtils.pathId(path, 2))
                 method == "GET" && path.matches(Regex("/dock-appointments/\\d+/attachment")) ->
                     dockAppointmentHandler.downloadAttachment(exchange, HttpUtils.pathId(path, 2))
+
+                method == "POST" && path == "/manifests" -> manifestHandler.upload(exchange)
+                method == "GET" && path == "/manifests" -> manifestHandler.list(exchange)
+                method == "GET" && path.matches(Regex("/manifests/\\d+")) -> manifestHandler.get(exchange, HttpUtils.pathId(path, 2))
 
                 else -> HttpUtils.send(exchange, 404, "{\"error\":\"route not found: $method $path\"}")
             }

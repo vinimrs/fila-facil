@@ -6,6 +6,7 @@ import br.com.filafacil.logistics.http.Router
 import br.com.filafacil.logistics.http.handlers.CustomerHandler
 import br.com.filafacil.logistics.http.handlers.DeliveryHandler
 import br.com.filafacil.logistics.http.handlers.DockAppointmentHandler
+import br.com.filafacil.logistics.http.handlers.ManifestHandler
 import br.com.filafacil.logistics.http.handlers.PickupHandler
 import br.com.filafacil.logistics.http.handlers.PickupWindowHandler
 import br.com.filafacil.logistics.http.handlers.RefundHandler
@@ -40,6 +41,7 @@ fun main() {
         RefundHandler(RefundService()),
         PickupWindowHandler(PickupWindowService()),
         DockAppointmentHandler(),
+        ManifestHandler(),
     )
 
     val port = AppConfig.getInt("server.port")

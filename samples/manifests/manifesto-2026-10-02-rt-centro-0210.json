@@ -1,0 +1,62 @@
+{
+  "routeCode": "RT-CENTRO-0210",
+  "uploadedBy": "cd.expedicao",
+  "entries": [
+    {
+      "packageCode": "PKG-200301",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200302",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200303",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200304",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200305",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200306",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200307",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-200308",
+      "route": "RT-CENTRO-0210",
+      "vehicle": "FFL4D56",
+      "responsible": "Ana Pereira",
+      "status": "LOADED"
+    }
+  ]
+}

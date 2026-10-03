@@ -1,0 +1,89 @@
+{
+  "routeCode": "RT-NORTE-0110",
+  "uploadedBy": "cd.expedicao",
+  "entries": [
+    {
+      "packageCode": "PKG-100231",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100232",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100233",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100232",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100234",
+      "route": "RT-NORTE-0110",
+      "vehicle": "",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100235",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": null,
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100236",
+      "route": "",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100237",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "PENDING"
+    },
+    {
+      "packageCode": "",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100238",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva"
+    },
+    {
+      "packageCode": "PKG-100239",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    },
+    {
+      "packageCode": "PKG-100231",
+      "route": "RT-NORTE-0110",
+      "vehicle": "FFL1A23",
+      "responsible": "João Silva",
+      "status": "LOADED"
+    }
+  ]
+}
