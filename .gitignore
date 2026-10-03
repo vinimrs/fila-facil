@@ -1,0 +1,16 @@
+.gradle
+.kotlin
+build/
+out/
+bin/
+uploads/
+*.log
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/

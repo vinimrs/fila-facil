@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: filafacil-postgres
+    environment:
+      POSTGRES_DB: filafacil
+      POSTGRES_USER: filafacil
+      POSTGRES_PASSWORD: Ff@2024!prod
+    ports:
+      - "5432:5432"
+    volumes:
+      - filafacil-data:/var/lib/postgresql/data
+
+volumes:
+  filafacil-data:
