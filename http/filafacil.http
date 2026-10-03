@@ -1,0 +1,116 @@
+@host = http://localhost:8080
+
+### Clientes
+GET {{host}}/customers
+
+###
+POST {{host}}/customers
+Content-Type: application/json
+
+{ "name": "Nova Loja", "document": "11.222.333/0001-44", "type": "PREMIUM", "email": "contato@novaloja.com.br" }
+
+###
+PATCH {{host}}/customers/9/deactivate
+
+### Coletas — cadastrar
+POST {{host}}/pickups
+Content-Type: application/json
+
+{ "customerId": 1, "region": "NORTH", "address": "Rua das Flores, 100", "packageCount": 12, "manualPriority": 8 }
+
+### Coletas — lote
+POST {{host}}/pickups/batch
+Content-Type: application/json
+
+[
+  { "customerId": 2, "region": "SOUTH", "address": "Av. Brasil, 500", "packageCount": 4 },
+  { "customerId": 3, "region": "EAST", "address": "", "packageCount": 2 }
+]
+
+### Coletas — listar (estratégia padrão)
+GET {{host}}/pickups
+
+### Coletas — listar por tipo de cliente
+GET {{host}}/pickups?strategy=customer-type&status=PENDING
+
+### Coletas — status
+PATCH {{host}}/pickups/1/status
+Content-Type: application/json
+
+{ "status": "SCHEDULED" }
+
+### Coletas — reagendar
+POST {{host}}/pickups/1/reschedule
+
+### Coletas — comprovante
+PUT {{host}}/pickups/1/proof
+Content-Type: application/octet-stream
+
+conteudo-do-comprovante
+
+### Coletas — resumo
+GET {{host}}/pickups/summary
+
+### Entregas
+GET {{host}}/deliveries?status=DELAYED&page=1&size=10
+
+###
+GET {{host}}/deliveries?driver=silva&from=2026-08-01&to=2026-08-31
+
+###
+POST {{host}}/deliveries/10/occurrences
+Content-Type: application/json
+
+{ "type": "DAMAGED_PACKAGE", "notes": "Caixa amassada" }
+
+### Reembolsos
+GET {{host}}/refunds?status=REQUESTED
+
+###
+POST {{host}}/refunds
+Content-Type: application/json
+
+{ "deliveryId": 10, "reason": "DAMAGED_PACKAGE", "amount": 35.50, "requestedBy": "sac.atendimento" }
+
+###
+POST {{host}}/refunds/14/approve
+Content-Type: application/json
+
+{ "approvedBy": "roberto.gerente" }
+
+###
+POST {{host}}/refunds/15/reject
+Content-Type: application/json
+
+{ "rejectedBy": "roberto.gerente", "notes": "Sem evidência" }
+
+###
+GET {{host}}/refunds/report
+
+### Janelas de coleta
+GET {{host}}/pickup-windows?date=2026-10-06
+
+### Docas
+GET {{host}}/dock-appointments
+
+###
+POST {{host}}/dock-appointments
+Content-Type: application/json
+
+{ "carrier": "Transportes Rápido Sul", "truckPlate": "ABC1D23", "dock": 2, "date": "2026-10-07", "startTime": "10:00" }
+
+###
+PUT {{host}}/dock-appointments/1/attachment
+X-File-Name: nf-12345.pdf
+Content-Type: application/octet-stream
+
+conteudo-da-nota
+
+### Manifestos
+POST {{host}}/manifests
+Content-Type: application/json
+
+< ../samples/manifests/manifesto-2026-10-02-rt-centro-0210.json
+
+###
+GET {{host}}/manifests
