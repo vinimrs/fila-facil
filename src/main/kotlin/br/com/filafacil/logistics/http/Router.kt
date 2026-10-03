@@ -3,6 +3,7 @@ package br.com.filafacil.logistics.http
 import br.com.filafacil.logistics.http.handlers.CustomerHandler
 import br.com.filafacil.logistics.http.handlers.DeliveryHandler
 import br.com.filafacil.logistics.http.handlers.PickupHandler
+import br.com.filafacil.logistics.http.handlers.PickupWindowHandler
 import br.com.filafacil.logistics.http.handlers.RefundHandler
 import com.sun.net.httpserver.HttpExchange
 
@@ -11,6 +12,7 @@ class Router(
     private val pickupHandler: PickupHandler,
     private val deliveryHandler: DeliveryHandler,
     private val refundHandler: RefundHandler,
+    private val pickupWindowHandler: PickupWindowHandler,
 ) {
 
     fun handle(exchange: HttpExchange) {
@@ -51,6 +53,9 @@ class Router(
                 method == "GET" && path.matches(Regex("/refunds/\\d+")) -> refundHandler.get(exchange, HttpUtils.pathId(path, 2))
                 method == "POST" && path.matches(Regex("/refunds/\\d+/approve")) -> refundHandler.approve(exchange, HttpUtils.pathId(path, 2))
                 method == "POST" && path.matches(Regex("/refunds/\\d+/reject")) -> refundHandler.reject(exchange, HttpUtils.pathId(path, 2))
+
+                method == "GET" && path == "/pickup-windows" -> pickupWindowHandler.list(exchange)
+                method == "GET" && path.matches(Regex("/pickup-windows/\\d+")) -> pickupWindowHandler.get(exchange, HttpUtils.pathId(path, 2))
 
                 else -> HttpUtils.send(exchange, 404, "{\"error\":\"route not found: $method $path\"}")
             }
