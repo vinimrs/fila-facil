@@ -2,6 +2,7 @@ package br.com.filafacil.logistics.http
 
 import br.com.filafacil.logistics.http.handlers.CustomerHandler
 import br.com.filafacil.logistics.http.handlers.DeliveryHandler
+import br.com.filafacil.logistics.http.handlers.DockAppointmentHandler
 import br.com.filafacil.logistics.http.handlers.PickupHandler
 import br.com.filafacil.logistics.http.handlers.PickupWindowHandler
 import br.com.filafacil.logistics.http.handlers.RefundHandler
@@ -13,6 +14,7 @@ class Router(
     private val deliveryHandler: DeliveryHandler,
     private val refundHandler: RefundHandler,
     private val pickupWindowHandler: PickupWindowHandler,
+    private val dockAppointmentHandler: DockAppointmentHandler,
 ) {
 
     fun handle(exchange: HttpExchange) {
@@ -56,6 +58,13 @@ class Router(
 
                 method == "GET" && path == "/pickup-windows" -> pickupWindowHandler.list(exchange)
                 method == "GET" && path.matches(Regex("/pickup-windows/\\d+")) -> pickupWindowHandler.get(exchange, HttpUtils.pathId(path, 2))
+
+                method == "POST" && path == "/dock-appointments" -> dockAppointmentHandler.create(exchange)
+                method == "GET" && path == "/dock-appointments" -> dockAppointmentHandler.list(exchange)
+                method == "PUT" && path.matches(Regex("/dock-appointments/\\d+/attachment")) ->
+                    dockAppointmentHandler.uploadAttachment(exchange, HttpUtils.pathId(path, 2))
+                method == "GET" && path.matches(Regex("/dock-appointments/\\d+/attachment")) ->
+                    dockAppointmentHandler.downloadAttachment(exchange, HttpUtils.pathId(path, 2))
 
                 else -> HttpUtils.send(exchange, 404, "{\"error\":\"route not found: $method $path\"}")
             }
